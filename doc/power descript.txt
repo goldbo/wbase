@@ -1,0 +1,11 @@
+1、根据用户名查找该用户所属的组织以及该组织的所有父组织 
+2、根据组织集合以及用户名，获取用户所属角色集合，wbase_org表的nodeNO字段与wbase_role_obj表的objNo字段相关联；
+	返回	wbase_role_obj 表的list
+3、根据 roleObjList每一条记录的roleNo字段，查找 wbase_power列表，该列表每条记录对应Wbase_Resource表的每条记录，通		过resNodeNo字段关联，得到权限等级map，key为资源ID，value为整型数值
+4、页面通过自定义标签如下，输出有权限的按钮html
+如：<wbase:powerButton onclick="deleteUser('/UserAction.do?action=deleteUser&todo=delete')" resNo="userManagement" type="2" value="删除" />
+	resNo必须与资源(即模块)的resNo一致，type为五个值，分别为 1为新增,2为删除,3修改,4为查询,5为默认可见
+
+检查权限方法：int purviewValue = (int) Math.pow(2, type);
+		return (权值 & purviewValue == purviewValue;
+若为true，显示按钮html

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!--	报表   -->
+	<bean id="reportDao" class="com.wingo.wbase.dao.ReportDao"
+		autowire="byName" />
+	<bean id="reportService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.ReportService">
+				<property name="reportDao">
+					<ref bean="reportDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!--	报表   -->
+	<bean id="wbaseFilesDao" class="com.wingo.wbase.dao.WbaseFilesDao"
+		autowire="byName" />
+	<bean id="wbaseFilesService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbaseFilesService">
+				<property name="wbaseFilesDao">
+					<ref bean="wbaseFilesDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+		<!--	调度器作业  -->
+<!--	<bean id="QuartzDAO" class="com.wingo.wbase.common.module.quartz.dao.QuartzDAO"-->
+<!--		autowire="byName" />-->
+<!---->
+<!--	<bean id="quartzService" parent="base">-->
+<!--		<property name="target">-->
+<!--			<bean class="com.wingo.wbase.common.module.quartz.service.QuartzService">-->
+<!--				<property name="quartzDAO">-->
+<!--					<ref bean="QuartzDAO" />-->
+<!--				</property>-->
+<!--			</bean>-->
+<!--		</property>-->
+<!--	</bean>-->
+
+	<bean name="/ReportAction"
+		class="com.wingo.wbase.web.action.ReportAction" singleton="false" />
+
+	<bean name="/SystemLogin"
+		class="com.wingo.wbase.web.action.SystemLogin" singleton="false" />
+
+	<bean name="/UploadAction"
+		class="com.wingo.wbase.web.action.UploadAction" singleton="false" />
+
+	<bean name="/MultiUploadAction"
+		class="com.wingo.wbase.web.action.MultiUploadAction"
+		singleton="false" />
+
+	<!--  组管理  -->
+	<bean id="wbaseOrgDao" class="com.wingo.wbase.dao.WbaseOrgDao"
+		autowire="byName" />
+	<bean id="wbaseOrgService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbaseOrgService">
+				<property name="wbaseOrgDao">
+					<ref bean="wbaseOrgDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/OrgAction" class="com.wingo.wbase.web.action.OrgAction"
+		singleton="false" />
+
+	<!--  组织用户管理  -->
+	<bean id="wbaseOrgUserDao"
+		class="com.wingo.wbase.dao.WbaseOrgUserDao" autowire="byName" />
+	<bean id="wbaseOrgUserService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbaseOrgUserService">
+				<property name="wbaseOrgUserDao">
+					<ref bean="wbaseOrgUserDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!--  用户管理   -->
+	<bean id="wbaseUserDao" class="com.wingo.wbase.dao.WbaseUserDao"
+		autowire="byName" />
+	<bean id="wbaseUserService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbaseUserService">
+				<property name="wbaseUserDao">
+					<ref bean="wbaseUserDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/UserAction"
+		class="com.wingo.wbase.web.action.UserAction" singleton="false" />
+
+	<!--  岗位管理   -->
+	<bean id="wbasePostDao" class="com.wingo.wbase.dao.WbasePostDao"
+		autowire="byName" />
+	<bean id="wbasePostService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbasePostService">
+				<property name="wbasePostDao">
+					<ref bean="wbasePostDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/PostAction"
+		class="com.wingo.wbase.web.action.PostAction" singleton="false" />
+
+	<!--  岗位管理   -->
+	<bean id="wbasePostUserDao"
+		class="com.wingo.wbase.dao.WbasePostUserDao" autowire="byName" />
+	<bean id="wbasePostUserService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbasePostUserService">
+				<property name="wbasePostUserDao">
+					<ref bean="wbasePostUserDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!--  角色管理   -->
+	<bean id="wbaseRoleDao" class="com.wingo.wbase.dao.WbaseRoleDao"
+		autowire="byName" />
+	<bean id="wbaseRoleService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbaseRoleService">
+				<property name="wbaseRoleDao">
+					<ref bean="wbaseRoleDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/RoleAction"
+		class="com.wingo.wbase.web.action.RoleAction" singleton="false" />
+
+	<!--  资源管理   -->
+	<bean id="wbaseResourceDao"
+		class="com.wingo.wbase.dao.WbaseResourceDao" autowire="byName" />
+	<bean id="wbaseResourceService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbaseResourceService">
+				<property name="wbaseResourceDao">
+					<ref bean="wbaseResourceDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/ResourceAction"
+		class="com.wingo.wbase.web.action.ResourceAction" singleton="false" />
+	<!--  角色对象管理   -->
+	<bean id="wbaseRoleObjDao"
+		class="com.wingo.wbase.dao.WbaseRoleObjDao" autowire="byName" />
+	<bean id="wbaseRoleObjService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbaseRoleObjService">
+				<property name="wbaseRoleObjDao">
+					<ref bean="wbaseRoleObjDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!--  权限管理   -->
+	<bean id="wbasePowerDao" class="com.wingo.wbase.dao.WbasePowerDao"
+		autowire="byName" />
+	<bean id="wbasePowerService" parent="base">
+		<property name="target">
+			<bean class="com.wingo.wbase.service.WbasePowerService">
+				<property name="wbasePowerDao">
+					<ref bean="wbasePowerDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/PowerAction"
+		class="com.wingo.wbase.web.action.PowerAction" singleton="false" />
+
+	<!--  系统基础配置管理-企业信息   -->
+	<bean id="wbaseSysCompanyDao"
+		class="com.wingo.wbase.dao.WbaseSysCompanyDao" autowire="byName" />
+	<bean id="wbaseSysCompanyService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbaseSysCompanyService">
+				<property name="wbaseSysCompanyDao">
+					<ref bean="wbaseSysCompanyDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/SysCompanyAction"
+		class="com.wingo.wbase.web.action.SysCompanyAction" singleton="false" />
+	<!--  系统基础配置管理-快捷菜单   -->
+	<bean id="wbaseSysShortcutDao"
+		class="com.wingo.wbase.dao.WbaseSysShortcutDao" autowire="byName" />
+	<bean id="wbaseSysShortcutService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbaseSysShortcutService">
+				<property name="wbaseSysShortcutDao">
+					<ref bean="wbaseSysShortcutDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!--  系统基础配置管理-系统消息管理   -->
+	<bean id="wbaseSysMessagesDao"
+		class="com.wingo.wbase.dao.WbaseSysMessagesDao" autowire="byName" />
+	<bean id="wbaseSysMessagesService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbaseSysMessagesService">
+				<property name="wbaseSysMessagesDao">
+					<ref bean="wbaseSysMessagesDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/SysMessagesAction"
+		class="com.wingo.wbase.web.action.SysMessagesAction"
+		singleton="false" />
+		
+	<!--  系统基础配置管理-系统文件类型管理   -->
+	<bean id="wbaseSysFiletypeDao"
+		class="com.wingo.wbase.dao.WbaseSysFiletypeDao" autowire="byName" />
+	<bean id="wbaseSysFiletypeService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbaseSysFiletypeService">
+				<property name="wbaseSysFiletypeDao">
+					<ref bean="wbaseSysFiletypeDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/SysFiletypeAction"
+		class="com.wingo.wbase.web.action.SysFiletypeAction"
+		singleton="false" />
+		
+		<!--  系统基础配置管理-底部导航管理   -->
+	<bean id="wbaseSysNavigationDao"
+		class="com.wingo.wbase.dao.WbaseSysNavigationDao" autowire="byName" />
+	<bean id="wbaseSysNavigationService" parent="base">
+		<property name="target">
+			<bean
+				class="com.wingo.wbase.service.WbaseSysNavigationService">
+				<property name="wbaseSysNavigationDao">
+					<ref bean="wbaseSysNavigationDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/SysNavigationAction"
+		class="com.wingo.wbase.web.action.SysNavigationAction"
+		singleton="false" />
+
+</beans>
+

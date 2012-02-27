@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+	<global-exceptions>
+		<!-- sample exception handler
+			<exception
+			key="expired.password"
+			type="app.ExpiredPasswordException"
+			path="/changePassword.jsp"/>
+			end sample -->
+	</global-exceptions>
+	<!-- =========================================== Global Forward Definitions -->
+	<global-forwards>
+		<!-- Default forward to "Welcome" action -->
+		<!-- Demonstrates using index.jsp to forward -->
+		<forward name="error" path="/error.jsp" />
+		<forward name="exit" path="/exit.jsp"></forward>
+
+	</global-forwards>
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<!-- =========================================== Action Mapping Definitions
+		-->
+	</action-mappings>
+	<!-- ======================================== Message Resources Definitions -->
+	<!--	<message-resources parameter="properties.wbase" key="wbase" />-->
+	<!--	<message-resources parameter="application" />-->
+	<!--	初始化系统相关信息缓存	-->
+	<plug-in
+		className="com.wingo.wbase.common.plugin.SystemInitLoadPlugIn" />
+	<!--	初始化组织架构树缓存	-->
+	<plug-in
+		className="com.wingo.wbase.common.plugin.OrgInitLoadPlugIn" />
+	<!--	初始化菜单缓存	-->
+	<plug-in
+		className="com.wingo.wbase.common.plugin.ResInitLoadPlugIn" />
+</struts-config>
+

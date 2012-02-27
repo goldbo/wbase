@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>远程登录</title>
+		<script type="text/javascript" src="remote.js"></script>
+		<script type="text/javascript">
+function connect(){
+	var server = document.all.server.value;//远程终端地址
+	//var userName = document.all.userName.value;//登录账号
+	//var clearTextPassword = document.all.clearTextPassword.value;//登录密码
+	//var domain = document.all.domain.value; //要登录的域
+	if(server!=""){
+		document.all.MsRdpClient.Server = server;//远程终端地址
+		//document.all.MsRdpClient.UserName = userName;//登录账号
+		//document.all.MsRdpClient.AdvancedSettings.ClearTextPassword = clearTextPassword;//登录密码
+		//document.all.MsRdpClient.Domain = domain; //要登录的域
+		//document.all.MsRdpClient.FullScreen = true;//全屏
+		document.all.MsRdpClient.Connect();
+	}else{
+		alert("请输入要登录的远程终端地址！");
+	}
+}
+</script>
+	</head>
+	<body>
+		<div id="remoteDiv" align="center">
+			远程终端地址：
+			<input type="text" id="server" name="server" value="">
+			<input type="button" onclick="connect()" value="远程连接">
+		</div>
+		<p>
+		<div id="viewDiv" align="center">
+			<object lang="javascript" id="MsRdpClient"
+				classid="clsid:7584c670-2274-4efb-b00b-d6aaba6d3850"
+				codebase="msrdp.cab#version=5,2,3790,0" width="800" height="600">
+			</object>
+		</div>
+		
+		<script type="text/javascript">
+			var extendedDiscReason = document.all.MsRdpClient.ExtendedDisconnectReason;
+			if (extendedDiscReason!=0){
+				alert(MsRdpClient_OnDisconnected(extendedDiscReason));
+			}
+		</script>
+	</body>
+</html>

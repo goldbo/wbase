@@ -1,0 +1,17 @@
+.menu_btn_on {
+	background: url(../images/menu/menu_btnbg_on.gif);
+	height: 42px;
+	font-weight: bold;
+	border: 1px solid #93cdd9;
+	cursor: pointer;
+	color: #009933
+}
+
+.menu_btn_off {
+	background: url(../images/menu/menu_btnbg_off.gif);
+	height: 35px;
+	font-weight: normal;
+	border: 1px solid #caeaf1;
+	cursor: pointer;
+	color: #666666
+}

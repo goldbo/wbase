@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting
+2.0//EN" "http://www.getahead.ltd.uk/dwr/dwr20.dtd" >
+<!-- <!DOCTYPE dwr SYSTEM "dwr20.dtd" > -->
+<dwr>
+	<allow>
+		<!--    岗位用户管理 -->
+		<create creator="spring" javascript="wbaseFilesService">
+			<param name="beanName" value="wbaseFilesService" />
+			<include method="delFromDisk" />
+		</create>
+		
+		<!--    组织管理 -->
+		<create creator="spring" javascript="wbaseOrgService">
+			<param name="beanName" value="wbaseOrgService" />
+			<include method="deleteOrg" />
+		</create>
+		
+		<!--    组织用户管理 -->
+		<create creator="spring" javascript="wbaseOrgUserService">
+			<param name="beanName" value="wbaseOrgUserService" />
+			<include method="updateOrgUserByUserIds" />
+		</create>
+		
+		<!--    资源管理 -->
+		<create creator="spring" javascript="wbaseResourceService">
+			<param name="beanName" value="wbaseResourceService" />
+			<include method="deleteResource" />
+		</create>
+		
+		<!--    用户管理 -->
+		<create creator="spring" javascript="wbaseUserService">
+			<param name="beanName" value="wbaseUserService" />
+			<include method="updateOrgUserByIds" />
+			<include method="updateRoleUserByIds" />
+		</create>
+		
+		<!--    快捷菜单 -->
+		<create creator="spring" javascript="wbaseSysShortcutService">
+			<param name="beanName" value="wbaseSysShortcutService" />
+			<include method="updateSysShortcutByNodes" />
+		</create>
+		
+		<!--    角色对象管理 -->
+		<create creator="spring" javascript="wbaseRoleObjService">
+			<param name="beanName" value="wbaseRoleObjService" />
+			<include method="updateRoleObjByObjIds" />
+		</create>
+		
+		<!--    岗位用户管理 -->
+		<create creator="spring" javascript="wbasePostUserService">
+			<param name="beanName" value="wbasePostUserService" />
+			<include method="updatePostUserByUserIds" />
+		</create>
+	</allow>
+</dwr>

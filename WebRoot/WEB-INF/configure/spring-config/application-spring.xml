@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		dependency-check="none">
+		<property name="location">
+			<value>/WEB-INF/configure/jdbc/sqlserver.properties</value>
+		</property>
+	</bean>
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="driverClass">
+			<value>${jdbc.driverClass}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${jdbc.jdbcUrl}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.user}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+		<!--连接池中保留的最小连接数。-->
+		<property name="minPoolSize">
+			<value>${jdbc.minPoolSize}</value>
+		</property>
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize">
+			<value>${jdbc.maxPoolSize}</value>
+		</property>
+		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialPoolSize">
+			<value>${jdbc.initialPoolSize}</value>
+		</property>
+		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime">
+			<value>${jdbc.maxIdleTime}</value>
+		</property>
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement">
+			<value>${jdbc.acquireIncrement}</value>
+		</property>
+		<!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements
+			属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。
+			如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0-->
+		<property name="maxStatements">
+			<value>${jdbc.maxStatements}</value>
+		</property>
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod">
+			<value>${jdbc.idleConnectionTestPeriod}</value>
+		</property>
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts">
+			<value>${jdbc.acquireRetryAttempts}</value>
+		</property>
+		<!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效
+			保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试
+			获取连接失败后该数据源将申明已断开并永久关闭。Default: false-->
+		<property name="breakAfterAcquireFailure">
+			<value>${jdbc.breakAfterAcquireFailure}</value>
+		</property>
+		<!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的
+			时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable
+			等方法来提升连接测试的性能。Default: false -->
+		<property name="testConnectionOnCheckout">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<!--		<bean id="dataSource"-->
+	<!--			class="org.springframework.jndi.JndiObjectFactoryBean">-->
+	<!--			<property name="jndiName">-->
+	<!--				<value>${jndi.name}</value>-->
+	<!--			</property>-->
+	<!--		</bean>-->
+
+	<bean id="hibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<!-- SQL方言  mysql、sqlserver、Oracle-->
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<!-- 设定对数据库进行批量处理 -->
+				<prop key="hibernate.default_batch_fetch_size">
+					${hibernate.default_batch_fetch_size}
+				</prop>
+				<!-- 设定对数据库进行批量处理 -->
+				<prop key="hibernate.jdbc.batch_size">
+					${hibernate.jdbc.batch_size}
+				</prop>
+				<!-- 一次读的数据库记录数 -->
+				<prop key="hibernate.jdbc.fetch_size">
+					${hibernate.jdbc.fetch_size}
+				</prop>
+				<prop key="hibernate.max_fetch_depth">
+					${hibernate.max_fetch_depth}
+				</prop>
+				<prop key="hibernate.cache.provider_class">
+					${hibernate.cache.provider_class}
+				</prop>
+				<!-- 为true表示将Hibernate发送给数据库的sql显示出来-->
+				<prop key="hibernate.show_sql">
+					${hibernate.show_sql}
+				</prop>
+				<prop key="hibernate.connection.provider_class">
+					${hibernate.connection.provider_class}
+				</prop>
+				<!--	最小连接数	-->
+				<prop key="hibernate.c3p0.min_size">
+					${hibernate.c3p0.min_size}
+				</prop>
+				<!--	最大连接数	-->
+				<prop key="hibernate.c3p0.max_size">
+					${hibernate.c3p0.max_size}
+				</prop>
+				<!--	获得连接的超时时间，如果超过这个时间，会抛出异常，单位毫秒	-->
+				<prop key="hibernate.c3p0.timeout">
+					${hibernate.c3p0.timeout}
+				</prop>
+				<!--	最大的 PreparedStatement的数量	-->
+				<prop key="hibernate.c3p0.max_statements">
+					${hibernate.c3p0.max_statements}
+				</prop>
+				<!--	检查连接池里的空闲连接的时间周期，单位秒	-->
+				<prop key="hibernate.c3p0.idle_test_period">
+					${hibernate.c3p0.idle_test_period}
+				</prop>
+				<!--	当连接池里面的连接用完的时候，C3P0一下获取的新的连接数	-->
+				<prop key="hibernate.c3p0.acquire_increment">
+					${hibernate.c3p0.acquire_increment}
+				</prop>
+				<!--	是否每次都验证连接是否可用	-->
+				<prop key="hibernate.c3p0.validate">
+					${hibernate.c3p0.validate}
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="mappingLocations">
+			<value>classpath*:/**/*.hbm.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<ref local="hibernateProperties" />
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	<!--  
+		<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		配置哪些类的哪些方法使用事务
+		<aop:config>
+		<aop:pointcut id="defaultDaoOperation" expression="execution(* com.wingo.*.service.*Service.*(..))" />
+		<aop:advisor advice-ref="defaultTxAdvice" pointcut-ref="defaultDaoOperation"/>
+		</aop:config>
+		配置事务的传播特性
+		<tx:advice id="defaultTxAdvice" transaction-manager="txManager">
+		<tx:attributes>
+		<tx:method name="*" />
+		</tx:attributes>
+		</tx:advice>
+	-->
+	<!-- 配置事务管理器 -->
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="base" lazy-init="false"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="proxyTargetClass">
+			<value>true</value>
+		</property>
+		<property name="transactionManager">
+			<ref bean="hibernateTransactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="del*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="is*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="send*">PROPAGATION_REQUIRED</prop>
+				<prop key="remote*">PROPAGATION_REQUIRED</prop>
+				<prop key="socket*">PROPAGATION_REQUIRED</prop>
+				<prop key="stop*">PROPAGATION_REQUIRED</prop>
+				<prop key="start*">PROPAGATION_REQUIRED</prop>
+				<prop key="oparete*">PROPAGATION_REQUIRED</prop>
+				<prop key="exc*">PROPAGATION_REQUIRED</prop>
+				<prop key="setQuartz*">PROPAGATION_REQUIRED</prop>
+				<prop key="collect*">PROPAGATION_REQUIRED</prop>
+				<prop key="confirm*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="baseDao"
+		class="com.wingo.wbase.common.base.BaseDAOHibernate"
+		autowire="byName">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!--	 权限检查拦截器 设定　-->
+	<!--	<bean id="PowerLnterceptor"-->
+	<!--		class="com.wingo.wbase.common.interceptor.PowerInterceptor" />-->
+	<!--	 日志拦截器 设定　-->
+	<!--		<bean id="logLnterceptor"-->
+	<!--			class="com.wingo.wbase.common.interceptor.LogInterceptor" />-->
+
+	<!--	 Bean自动代理器 設定-->
+	<!--		<bean name="loggingAutoProxy"-->
+	<!--			class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
+	<!--			<property name="beanNames">-->
+	<!--				<value>*Action</value>-->
+	<!--			</property>-->
+	<!--			<property name="interceptorNames">-->
+	<!--				<list>-->
+	<!--					<value>PowerLnterceptor</value>-->
+	<!--					<value>logLnterceptor</value>-->
+	<!--				</list>-->
+	<!--			</property>-->
+	<!--		</bean>-->
+
+</beans>
+

@@ -1,0 +1,22 @@
+#
+#Sat Feb 12 15:28:01 CST 2011
+genBasicCompId=true
+sessionFactoryName=com.wingo.wbase.model.HibernateSessionFactory
+profile=
+daoSFId=
+version=3.1
+jndiPath=
+detectM2M=true
+reStrategyClass=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=uuid.hex
+libInstallFolder=
+addLibs2Project=false
+genVersionTag=true
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=
+configFile=/wbase/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=false

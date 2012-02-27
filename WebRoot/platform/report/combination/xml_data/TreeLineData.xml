@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 该XML为 StackedLineChart 即柱状（累加）与折线组合图，节点数据控制需要在报表中设置 --> 
+<root>
+ 
+  <node>
+  <days>1</days>
+  <data1>123</data1>
+  <data2>223</data2>
+  <data3>234</data3>
+  <data4>444</data4>
+  <data5>11</data5>
+  </node>
+  
+  <node>
+  <days>2</days>
+  <data1>123</data1>
+  <data2>345</data2>
+  <data3>222</data3>
+  <data4>456</data4>
+  <data5>876</data5>
+  </node>
+ 
+  <node>
+  <days>3</days>
+  <data1>123</data1>
+  <data2>1234</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>12</data5>
+  </node>
+  
+  <node>
+  <days>4</days>
+  <data1>123</data1>
+  <data2>66</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>345</data5>
+  </node>
+  
+  <node>
+  <days>5</days>
+  <data1>123</data1>
+  <data2>44</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>54</data5>
+  </node>
+  
+  <node>
+  <days>6</days>
+  <data1>123</data1>
+  <data2>766</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>65</data5>
+  </node>
+  
+  <node>
+  <days>7</days>
+  <data1>123</data1>
+  <data2>90</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>67</data5>
+  </node>
+  
+  <node>
+  <days>8</days>
+  <data1>123</data1>
+  <data2>222</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>98</data5>
+  </node>
+  
+  <node>
+  <days>9</days>
+  <data1>123</data1>
+  <data2>444</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>111</data5>
+  </node>
+  
+  <node>
+  <days>10</days>
+  <data1>786</data1>
+  <data2>300</data2>
+  <data3>234</data3>
+  <data4>322</data4>
+  <data5>632</data5>
+  </node>
+  
+  <node>
+  <days>11</days>
+  <data1>456</data1>
+  <data2>321</data2>
+  <data3>234</data3>
+  <data4>123</data4>
+  <data5>333</data5>
+  </node>
+  
+  <node>
+  <days>12</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>13</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>14</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>  
+  
+  <node>
+  <days>15</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>16</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>17</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>18</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>19</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>20</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>21</days>
+  <data1>456</data1>
+  <data2>321</data2>
+  <data3>234</data3>
+  <data4>123</data4>
+  <data5>333</data5>
+  </node>
+  
+  <node>
+  <days>22</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>23</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>24</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>  
+  
+  <node>
+  <days>25</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>26</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>27</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>28</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>29</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>30</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <days>31</days>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+</root>

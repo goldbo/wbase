@@ -1,0 +1,23 @@
+﻿
+mysql 连接很慢解决！ 
+
+
+排除网络问题........
+就MySQL本身而言，问题出在在mysql dns反解析
+mysql>show processlist;
+| 20681949 | unauthenticated user | 10.10.4.193:52497 | NULL | Connect |        | Reading from net                 | NULL                                                                                                 | 
+| 20681948 | unauthenticated user | 10.10.4.193:52495 | NULL | Connect |        | Reading from net                 | NULL 
+发现有非常多的 unauthenticated user 尝试做登入使用 mysql 的情況 ，当这种情况无限制发生时就会造成系统十分缓慢。
+查阅mysql官方网站得知，这属于官方一个系统上的特殊设定，就把他当成mysql的一个bug算了
+不管链接的的方式是经过 hosts 或是 IP 的模式，他都会对 DNS 做反查 
+mysqld 会尝试去反查 IP -> dns ，由于反查解析过慢，就会无法应付过量的查询。
+
+解决办法：
+/usr/local/mysql/bin/mysqld_safe --skip-name-resolve --user=mysql&
+加 --skip-name-resolve 这么一个参数就可以，关闭mysql的dns反查功能。
+或者修改mysql配置文件。
+编辑/etc/my.cnf
+在[mysqld]段中加入
+skip-name-resolve
+重启mysql
+����mysql

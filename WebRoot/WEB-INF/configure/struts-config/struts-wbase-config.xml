@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="CommonForm"
+			type="com.wingo.wbase.web.form.CommonForm" />
+		<form-bean name="uploadFileForm"
+			type="com.wingo.wbase.common.file.UploadFileForm" />
+		<form-bean name="wbaseOrgForm"
+			type="com.wingo.wbase.web.form.WbaseOrgForm" />
+		<form-bean name="wbaseUserForm"
+			type="com.wingo.wbase.web.form.WbaseUserForm" />
+		<form-bean name="wbasePostForm"
+			type="com.wingo.wbase.web.form.WbasePostForm" />
+		<form-bean name="wbaseRoleForm"
+			type="com.wingo.wbase.web.form.WbaseRoleForm" />
+		<form-bean name="wbaseRoleObjForm"
+			type="com.wingo.wbase.web.form.WbaseRoleObjForm" />
+		<form-bean name="wbaseResourceForm"
+			type="com.wingo.wbase.web.form.WbaseResourceForm" />
+		<form-bean name="wbasePowerForm"
+			type="com.wingo.wbase.web.form.WbasePowerForm" />
+		<form-bean name="wbaseSysCompanyForm"
+			type="com.wingo.wbase.web.form.WbaseSysCompanyForm" />
+		<form-bean name="wbaseSysMessagesForm"
+			type="com.wingo.wbase.web.form.WbaseSysMessagesForm" />
+		<form-bean name="wbaseSysFiletypeForm"
+			type="com.wingo.wbase.web.form.WbaseSysFiletypeForm" />
+		<form-bean name="wbaseSysNavigationForm"
+			type="com.wingo.wbase.web.form.WbaseSysNavigationForm" />
+	</form-beans>
+
+	<global-exceptions />
+	<global-forwards>
+		<forward name="noSession" path="/exit.jsp" />
+	</global-forwards>
+
+	<!-- =========================================== Action Mapping Definitions -->
+
+	<action-mappings>
+		<action path="/index" forward="/index.jsp"></action>
+		<!--		<action forward="/uims/org/org_frame.jsp" path="/orgFrame"-->
+		<!--			scope="request" />-->
+		<action path="/ReportAction" name="CommonForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="report" path="/platform/report/amline/amline.jsp" />
+			<forward name="stackedLineReport" path="/platform/report/combination/stackedLineChart.jsp" />
+			<forward name="clusteredLineReport" path="/platform/report/combination/clusteredLineChart.jsp" />
+			<forward name="treeLineReport" path="/platform/report/combination/treeLineChart.jsp" />
+		</action>
+
+		<!--  用户登录验证管理 -->
+		<action path="/SystemLogin" name="wbaseUserForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="success" path="/platform/admin.jsp" />
+			<forward name="failure" path="/index.jsp" />
+		</action>
+		<!--  文件上传管理 -->
+		<action path="/UploadAction" name="uploadFileForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="deleteFile"
+				path="/platform/upload/upload_complete.jsp" />
+			<forward name="uploadImageFailure"
+				path="/platform/upload/uploadImage.jsp" />
+		</action>
+
+		<!--  组织管理 -->
+		<action path="/OrgAction" name="wbaseOrgForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showOrgTree"
+				path="/platform/org/orgTree.jsp" />
+			<forward name="updateOrg"
+				path="/platform/org/updateOrg.jsp" />
+			<forward name="createOrg"
+				path="/platform/org/createOrg.jsp" />
+			<forward name="deleteOrg" path="/platform/org/orgDesk.jsp" />
+		</action>
+
+		<!--  用户管理 -->
+		<action path="/UserAction" name="wbaseUserForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showUserList"
+				path="/platform/user/userMain.jsp" />
+			<forward name="updateUser"
+				path="/platform/user/updateUser.jsp" />
+			<forward name="showUserInfo"
+				path="/platform/user/show_userinfo.jsp" />
+			<forward name="updateUserInfo"
+				path="/platform/user/update_userinfo.jsp" />
+			<forward name="updateUserPwd"
+				path="/platform/user/update_userpwd.jsp" />
+			<forward name="createUser"
+				path="/platform/user/createUser.jsp" />
+			<forward name="showOrgUserList"
+				path="/platform/org/orgUser.jsp" />
+			<forward name="showRoleUserList"
+				path="/platform/role/roleUser.jsp" />
+		</action>
+
+		<!--  岗位管理 -->
+		<action path="/PostAction" name="wbasePostForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showPostList"
+				path="/platform/post/postMain.jsp" />
+			<forward name="updatePost"
+				path="/platform/post/updatePost.jsp" />
+			<forward name="createPost"
+				path="/platform/post/createPost.jsp" />
+		</action>
+
+		<!--  角色管理 -->
+		<action path="/RoleAction" name="wbaseRoleForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showRoleList"
+				path="/platform/role/roleMain.jsp" />
+			<forward name="updateRole"
+				path="/platform/role/updateRole.jsp" />
+			<forward name="createRole"
+				path="/platform/role/createRole.jsp" />
+		</action>
+
+		<!--  资源管理 -->
+		<action path="/ResourceAction" name="wbaseResourceForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showResourceTree"
+				path="/platform/resource/resourceTree.jsp" />
+			<forward name="updateResource"
+				path="/platform/resource/updateResource.jsp" />
+			<forward name="createResource"
+				path="/platform/resource/createResource.jsp" />
+			<forward name="deleteResource"
+				path="/platform/resource/resourceDesk.jsp" />
+		</action>
+
+		<!--  权限管理 -->
+		<action path="/PowerAction" name="wbasePowerForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="editPower"
+				path="/platform/power/updatePower.jsp" />
+			<forward name="updatePower"
+				path="/platform/power/updatePower.jsp" />
+		</action>
+
+		<!--  系统基础配置管理-企业信息 -->
+		<action path="/SysCompanyAction" name="wbaseSysCompanyForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showSysCompany"
+				path="/platform/system/company/show_sys_company.jsp" />
+			<forward name="updateSysCompany"
+				path="/platform/system/company/show_sys_company.jsp" />
+		</action>
+		<!--  系统基础配置管理-系统消息 -->
+		<action path="/SysMessagesAction" name="wbaseSysMessagesForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showSysMessagesList"
+				path="/platform/system/messages/show_sys_messages.jsp" />
+			<forward name="updateSysMessages"
+				path="/platform/system/messages/update_sys_messages.jsp" />
+			<forward name="createSysMessages"
+				path="/platform/system/messages/create_sys_messages.jsp" />
+			<forward name="viewSysMessages"
+				path="/platform/system/messages/view_sys_messages.jsp" />
+		</action>
+		<!--  系统基础配置管理-系统文件类型-->
+		<action path="/SysFiletypeAction" name="wbaseSysFiletypeForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showSysFiletypeList"
+				path="/platform/system/filetype/show_sys_filetype.jsp" />
+			<forward name="createSysFiletype"
+				path="/platform/system/filetype/create_sys_filetype.jsp" />
+			<forward name="updateSysFiletype"
+				path="/platform/system/filetype/update_sys_filetype.jsp" />
+		</action>
+
+		<!--  系统基础配置管理-底部导航管理-->
+		<action path="/SysNavigationAction"
+			name="wbaseSysNavigationForm"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="action" scope="request">
+			<forward name="showSysNavigationList"
+				path="/platform/system/navigation/show_sys_navigation.jsp" />
+			<forward name="createSysNavigation"
+				path="/platform/system/navigation/create_sys_navigation.jsp" />
+			<forward name="updateSysNavigation"
+				path="/platform/system/navigation/update_sys_navigation.jsp" />
+		</action>
+
+		<!-- =========================================== Action Mapping Definitions-->
+	</action-mappings>
+
+</struts-config>
+

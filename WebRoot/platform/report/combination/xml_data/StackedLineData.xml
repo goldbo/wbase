@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 该XML为 StackedLineChart 即柱状（累加）与折线组合图，节点数据控制需要在报表中设置 --> 
+<root>  
+  <node>
+  <months>4月</months>
+  <data1>123</data1>
+  <data2>66</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>345</data5>
+  </node>
+  
+  <node>
+  <months>5月</months>
+  <data1>123</data1>
+  <data2>44</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>54</data5>
+  </node>
+  
+  <node>
+  <months>6月</months>
+  <data1>123</data1>
+  <data2>766</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>65</data5>
+  </node>
+  
+  <node>
+  <months>7月</months>
+  <data1>123</data1>
+  <data2>90</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>67</data5>
+  </node>
+  
+  <node>
+  <months>8月</months>
+  <data1>123</data1>
+  <data2>222</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>98</data5>
+  </node>
+  
+  <node>
+  <months>9月</months>
+  <data1>123</data1>
+  <data2>444</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>111</data5>
+  </node>
+  
+  <node>
+  <months>10月</months>
+  <data1>786</data1>
+  <data2>300</data2>
+  <data3>234</data3>
+  <data4>322</data4>
+  <data5>632</data5>
+  </node>
+  
+  <node>
+  <months>11月</months>
+  <data1>456</data1>
+  <data2>321</data2>
+  <data3>234</data3>
+  <data4>123</data4>
+  <data5>333</data5>
+  </node>
+  
+  <node>
+  <months>12月</months>
+  <data1>123</data1>
+  <data2>786</data2>
+  <data3>232</data3>
+  <data4>234</data4>
+  <data5>655</data5>
+  </node>
+  
+  <node>
+  <months>1月</months>
+  <data1>123</data1>
+  <data2>223</data2>
+  <data3>234</data3>
+  <data4>444</data4>
+  <data5>11</data5>
+  </node>
+  
+  <node>
+  <months>2月</months>
+  <data1>123</data1>
+  <data2>345</data2>
+  <data3>222</data3>
+  <data4>456</data4>
+  <data5>876</data5>
+  </node>
+  
+  <node>
+  <months>3月</months>
+  <data1>123</data1>
+  <data2>1234</data2>
+  <data3>234</data3>
+  <data4>234</data4>
+  <data5>12</data5>
+  </node>
+</root>
